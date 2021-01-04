@@ -1,0 +1,31 @@
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+.editor, .CodeMirror {
+    height: auto;
+}
+
+.top-menu {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+}
+
+.button-build {
+    padding: 1vh;
+    border: none;
+    background: #2196F3;
+    margin: 5px;
+    color: #fff;
+    font-family: sans-serif;
+    border-radius: 2vh;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.button-build:hover {
+    background: #03a9f4;
+    transition: 0.2s;
+}
