@@ -26,7 +26,7 @@ app.post('/build', async (req, res) => {
     
     await fs.writeFileSync(fileName + '.pwn', req.body.code);
     exec(`pawncc ${fileName}.pwn -i${__dirname}/include/ -o${__dirname}/output/${fileName} -";" -"("`, (err, cout, cerr) => {
-        //fs.unlinkSync(fileName + '.pwn');
+        fs.unlinkSync(fileName + '.pwn');
         
         console.log(cout)
 
