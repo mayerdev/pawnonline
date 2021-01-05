@@ -1,6 +1,6 @@
 ## PawnOnline
 #### Online IDE for Pawn
-[Screenshot](https://raw.githubusercontent.com/mayerdev/pawnonline/main/screenshot.png)
+[Screenshot](https://github.com/mayerdev/pawnonline/blob/main/screenshot.png?raw=true)
 
 ### Installation guide
 
