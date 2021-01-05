@@ -12,6 +12,9 @@ main() {
 });
 
 document.querySelector('.button-build').onclick = async () => {
+    document.querySelector('.button-build').disabled = true;
+    document.querySelector('.button-build').innerText = 'Сборка...';
+    
     const res = await fetch('/build', {
         method: 'POST',
         headers: {
@@ -23,15 +26,31 @@ document.querySelector('.button-build').onclick = async () => {
     
     const json = await res.json();
     
+    document.querySelector('.button-build').innerText = 'Собрать';
+    document.querySelector('.button-build').removeAttribute('disabled');
+    
     if(json.error && json.text) return alert(json.text);
     if(json.text) window.location.href = `/${json.text}.amx`;
 }
 
-document.querySelector('.upload').onchange = () => {
+document.querySelector('.upload').onchange = async () => {
     let input = document.querySelector('.upload');
-    let read = new FileReader();
+    const data = new FormData();
+    data.append('file', input.files[0]);
+
+    document.querySelector('.button-build').disabled = true;
+    document.querySelector('.button-build').innerText = 'Загрузка файла...';
     
-    read.readAsText(input.files[0], 'windows-1251');
+    const res = await fetch('/build/file', {
+        method: 'POST',
+        body: data
+    });
     
-    read.onload = () => editor.setValue(read.result);
+    const json = await res.json();
+    
+    document.querySelector('.button-build').innerText = 'Собрать';
+    document.querySelector('.button-build').removeAttribute('disabled');
+    
+    if(json.error && json.text) return alert(json.text);
+    if(json.text) editor.setValue(json.text);
 }

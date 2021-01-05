@@ -46,4 +46,4 @@ Open `http://127.0.0.1:8081/` in browser
 For using PawnOnline you need install includes in directory `include` (if directory `include` not exists, create it).
 
 ### Step 2. Output
-Create directory named `output`.
+Create directory named `output` and `tmp`.

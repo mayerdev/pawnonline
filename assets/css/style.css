@@ -29,3 +29,9 @@ body {
     background: #03a9f4;
     transition: 0.2s;
 }
+
+.button-build:disabled {
+    background: #efefef;
+    color: #333;
+    cursor: not-allowed;
+}

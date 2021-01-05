@@ -2,6 +2,8 @@ const express = require('express');
 const pug = require('pug');
 const fs = require('fs');
 const { exec } = require('child_process');
+const fileUpload = require('express-fileupload');
+const iconv = require('iconv-lite');
 const app = express();
 
 app.set('view engine', 'pug');
@@ -10,9 +12,21 @@ app.use(express.json({ limit: '128mb' }));
 app.use(express.static('assets'));
 app.use(express.static('node_modules'));
 app.use(express.static('output'));
+app.use(fileUpload());
 
 app.get('/', (req, res) => {
     res.render('editor');
+});
+
+app.post('/build/file', async (req, res) => {
+    if (!req.files || Object.keys(req.files).length === 0) return res.json({ text: 'File not found', error: true });
+
+    let file = req.files.file;
+    const fileName = String(Math.random()).replace('.', '');
+
+    file.mv(`${__dirname}/output/${fileName}.pwn`, async (err)  => {
+        res.json({ text: iconv.decode(await fs.readFileSync(`${__dirname}/output/${fileName}.pwn`), 'cp1251').toString(), error: false });
+    });
 });
 
 app.post('/build', async (req, res) => {
@@ -23,16 +37,13 @@ app.post('/build', async (req, res) => {
     
     const fileName = String(Math.random()).replace('.', '');
     
-    
-    await fs.writeFileSync(fileName + '.pwn', req.body.code);
+    await fs.writeFileSync(fileName + '.pwn',  iconv.encode(req.body.code, 'cp1251'));
     exec(`pawncc ${fileName}.pwn -i${__dirname}/include/ -o${__dirname}/output/${fileName} -";" -"("`, (err, cout, cerr) => {
         fs.unlinkSync(fileName + '.pwn');
-        
-        console.log(cout)
 
-        if(!err) return res.send({ text: fileName, error: false });
+        if(!err) return res.json({ text: fileName, error: false });
         
-        res.send({ text: cout, error: true });
+        res.json({ text: cout, error: true });
     });
 });
 
