@@ -43,3 +43,4 @@ dist
 .dynamodb/
 .tern-port
 include/*
+.DS_Store
