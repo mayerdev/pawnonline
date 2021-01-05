@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "PawnOnline - Editor in browser from MayerDev",
   "main": "app.js",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "iconv-lite": "^0.6.2",
+    "pug": "^3.0.0"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
