@@ -44,3 +44,5 @@ dist
 .tern-port
 include/*
 .DS_Store
+output/
+package-lock.json

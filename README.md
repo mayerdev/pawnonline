@@ -45,9 +45,11 @@ Clone this repo:
 Go to directory and install packages:
 > cd pawnonline && npm i 
 
+Start IDE:
 > node app.js
 
 Open `http://127.0.0.1:8081/` in browser
+P.S You can change port in config.json
 
 ## Use PawnOnline
 

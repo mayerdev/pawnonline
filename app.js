@@ -4,6 +4,7 @@ const fs = require('fs');
 const { exec } = require('child_process');
 const fileUpload = require('express-fileupload');
 const iconv = require('iconv-lite');
+const config = require('./config.json');
 const app = express();
 
 app.set('view engine', 'pug');
@@ -47,4 +48,4 @@ app.post('/build', async (req, res) => {
     });
 });
 
-app.listen(8081, console.log('Started on ::8080'));
+app.listen(config.port, config.host, console.log(`Started on ${config.host}:${config.port}`));
