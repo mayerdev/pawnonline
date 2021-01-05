@@ -4,14 +4,17 @@ html
         meta(charset='utf-8')
         link(rel='stylesheet', href='/codemirror/lib/codemirror.css')
         link(rel='stylesheet', href='/codemirror/theme/darcula.css')
+        link(rel='stylesheet', href='/codemirror/addon/hint/show-hint.css')
         link(rel='stylesheet', href='/css/style.css')
     body
         div.top-menu
             input.upload(type='file')
             button.button-build(type='button') Собрать
+            button.button-help(type='button') Справка
             
         div.editor
         
         script(src='/codemirror/lib/codemirror.js')
         script(src='/codemirror/mode/clike/clike.js')
+        script(src='/codemirror/addon/hint/show-hint.js')
         script(src='/js/script.js')

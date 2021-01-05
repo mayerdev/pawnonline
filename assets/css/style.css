@@ -13,7 +13,7 @@ body {
     right: 0;
 }
 
-.button-build {
+.button-build, .button-help {
     padding: 1vh;
     border: none;
     background: #2196F3;
@@ -23,9 +23,10 @@ body {
     border-radius: 2vh;
     cursor: pointer;
     transition: 0.2s;
+    outline: none;
 }
 
-.button-build:hover {
+.button-build:hover, .button-help:hover {
     background: #03a9f4;
     transition: 0.2s;
 }
@@ -34,4 +35,8 @@ body {
     background: #efefef;
     color: #333;
     cursor: not-allowed;
+}
+
+.upload {
+    color: #fff;
 }

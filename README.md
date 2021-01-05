@@ -46,7 +46,10 @@ Go to directory and install packages:
 > cd pawnonline && npm i 
 
 Start IDE:
-> node app.js
+> npm start
+
+Start IDE in development mode:
+> npm run dev
 
 Open `http://127.0.0.1:8081/` in browser
 

@@ -8,7 +8,8 @@ main() {
 }`,
     mode:  'text/x-csrc',
     theme: 'darcula',
-    height: '100%'
+    height: '100%',
+    indentUnit: 4
 });
 
 document.querySelector('.button-build').onclick = async () => {
@@ -54,3 +55,10 @@ document.querySelector('.upload').onchange = async () => {
     if(json.error && json.text) return alert(json.text);
     if(json.text) editor.setValue(json.text);
 }
+
+document.querySelector('.button-help').onclick = async () => alert(`Справка
+CTRL + A - выделить всё
+CTRL + D - удалить строку
+CTRL + Backspace - удалить всё до начала строки
+CTRL + Z - откатить изменение
+CTRL + Y - вернуть изменение`);
