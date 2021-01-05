@@ -4,28 +4,19 @@
 
 ### Installation guide
 
-#### Ubuntu 18.04
-
 Go to home:
 > cd ~
 
-Install NodeJS, npm, unzip and git:
-> apt-get update && apt-get install nodejs npm unzip git -y
+#### Ubuntu 18.04
 
-Clone this repo:
-> git clone https://github.com/mayerdev/pawnonline.git
-
-Go to directory and install packages:
-> cd pawnonline && npm i 
+Install NodeJS, npm, unzip, git and build dependencies:
+> apt-get update && apt-get install nodejs npm unzip git build-essential gcc-multilib cmake -y
 
 Download pawncc 3.10.7:
 > cd /tmp && wget https://github.com/pawn-lang/compiler/archive/v3.10.7.zip
 
 Unzip and go to directory:
 > unzip v3.10.7.zip && cd compiler-3.10.7
-
-Install dependencies:
-> apt-get install build-essential gcc-multilib cmake -y
 
 Build and install:
 > mkdir build && cd build
@@ -36,8 +27,25 @@ Build and install:
 >
 > ldconfig
 
-Start IDE:
-> cd ~ && node app.js
+#### macOS
+
+Download pawncc prebuild binaries and unzip
+> wget https://github.com/pawn-lang/compiler/releases/download/v3.10.7/pawnc-3.10.7-macos.zip && unzip pawnc-3.10.7-macos.zip
+
+Install binaries and library:
+> mv pawnc-3.10.7-macos/bin/* /usr/local/bin
+>
+> sudo mv pawnc-3.10.7-macos/lib/* /usr/local/lib
+
+
+#### Install IDE
+Clone this repo:
+> git clone https://github.com/mayerdev/pawnonline.git
+
+Go to directory and install packages:
+> cd pawnonline && npm i 
+
+> node app.js
 
 Open `http://127.0.0.1:8081/` in browser
 
