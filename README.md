@@ -62,3 +62,11 @@ For using PawnOnline you need install includes in directory `include` (if direct
 
 ### Step 2. Output
 Create directory named `output`.
+
+## config.json
+
+| Option      | Description                          |
+|-------------|--------------------------------------|
+| port        | Application port, example: 8081      |
+| host        | Application host, example: 0.0.0.0   |
+| maxFileSize | Max file upload size, example: 128mb |

@@ -9,7 +9,7 @@ const app = express();
 
 app.set('view engine', 'pug');
 
-app.use(express.json({ limit: '128mb' }));
+app.use(express.json({ limit: config.maxFileSize }));
 app.use(express.static('assets'));
 app.use(express.static('node_modules'));
 app.use(express.static('output'));
