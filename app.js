@@ -1,5 +1,4 @@
 const express = require('express');
-const pug = require('pug');
 const fs = require('fs');
 const { exec } = require('child_process');
 const fileUpload = require('express-fileupload');
@@ -22,10 +21,9 @@ app.all('/', (req, res) => {
 app.post('/build/file', async (req, res) => {
     if (!req.files || Object.keys(req.files).length === 0) return res.json({ text: 'File not found', error: true });
 
-    let file = req.files.file;
     const fileName = String(Math.random()).replace('.', '');
 
-    file.mv(`${__dirname}/output/${fileName}.pwn`, async (err)  => {
+    req.files.file.mv(`${__dirname}/output/${fileName}.pwn`, async ()  => {
         res.json({ text: iconv.decode(await fs.readFileSync(`${__dirname}/output/${fileName}.pwn`), 'cp1251').toString(), error: false });
     });
 });
@@ -39,8 +37,9 @@ app.post('/build', async (req, res) => {
     const fileName = String(Math.random()).replace('.', '');
     
     await fs.writeFileSync(fileName + '.pwn',  iconv.encode(req.body.code, 'cp1251'));
-    exec(`pawncc ${fileName}.pwn -i${__dirname}/include/ -o${__dirname}/output/${fileName} -";" -"("`, (err, cout, cerr) => {
-        fs.unlinkSync(fileName + '.pwn');
+
+    exec(`pawncc ${fileName}.pwn -i${__dirname}/include/ -o${__dirname}/output/${fileName} -";" -"("`, (err, cout) => {
+        fs.unlinkSync(`${fileName}.pwn`);
 
         if(!err) return res.json({ text: fileName, error: false });
         
