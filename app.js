@@ -15,7 +15,7 @@ app.use(express.static('node_modules'));
 app.use(express.static('output'));
 app.use(fileUpload());
 
-app.get('/', (req, res) => {
+app.all('/', (req, res) => {
     res.render('editor');
 });
 
