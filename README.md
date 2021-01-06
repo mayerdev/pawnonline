@@ -2,7 +2,9 @@
 #### Online IDE for Pawn
 ![Screenshot](https://github.com/mayerdev/pawnonline/blob/main/screenshot.png?raw=true)
 
-### Installation guide
+---
+
+## Installation guide
 
 Go to home:
 > cd ~
@@ -55,15 +57,19 @@ Open `http://127.0.0.1:8081/` in browser
 
 P.S You can change port in `config.json`
 
+---
+
 ## Use PawnOnline
 
-### Step 1. Includes
+#### Step 1. Includes
 For using PawnOnline you need install includes in directory `include` (if directory `include` not exists, create it).
 
-### Step 2. Output
+#### Step 2. Output
 Create directory named `output`.
 
-## config.json
+---
+
+## Customize config.json
 
 | Option      | Description                          |
 |-------------|--------------------------------------|
