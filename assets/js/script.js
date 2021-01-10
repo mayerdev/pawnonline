@@ -5,11 +5,16 @@ let editor  = CodeMirror(document.querySelector('.editor'), {
 
 main() {
     print("This is PawnOnline IDE by MayerDev");
+    print("GitHub: https://github.com/mayerdev/pawnonline");
+    print("Donate: https://qiwi.com/n/MAYERDEV");
 }`,
     mode:  'text/x-csrc',
     theme: 'darcula',
     height: '100%',
-    indentUnit: 4
+    indentUnit: 4,
+    autoCloseBrackets: true,
+    highlightSelectionMatches: true,
+    styleActiveLine: true
 });
 
 document.querySelectorAll('.button-build').forEach(el => el.onclick = async () => {
