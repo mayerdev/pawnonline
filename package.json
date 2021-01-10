@@ -1,6 +1,6 @@
 {
   "name": "pawnonline",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "PawnOnline - Editor in browser from MayerDev",
   "main": "app.js",
   "dependencies": {
