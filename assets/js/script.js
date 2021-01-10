@@ -56,9 +56,11 @@ document.querySelector('.upload').onchange = async () => {
     if(json.text) editor.setValue(json.text);
 }
 
-document.querySelector('.button-help').onclick = async () => alert(`Справка
+document.querySelector('.button-help').onclick = () => alert(`Справка
 CTRL + A - выделить всё
 CTRL + D - удалить строку
 CTRL + Backspace - удалить всё до начала строки
 CTRL + Z - откатить изменение
 CTRL + Y - вернуть изменение`);
+
+document.querySelector('.button-search').onclick = () => editor.execCommand('find');

@@ -13,7 +13,7 @@ body {
     right: 0;
 }
 
-.button-build, .button-help {
+.button-build, .button-help, .button-search {
     padding: 1vh;
     border: none;
     background: #2196F3;
@@ -26,7 +26,7 @@ body {
     outline: none;
 }
 
-.button-build:hover, .button-help:hover {
+.button-build:hover, .button-help:hover, .button-search:hover {
     background: #03a9f4;
     transition: 0.2s;
 }
