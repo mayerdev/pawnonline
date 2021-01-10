@@ -12,7 +12,7 @@ main() {
     indentUnit: 4
 });
 
-document.querySelector('.button-build').onclick = async () => {
+document.querySelectorAll('.button-build').forEach(el => el.onclick = async () => {
     document.querySelector('.button-build').disabled = true;
     document.querySelector('.button-build').innerText = 'Сборка...';
     
@@ -32,9 +32,9 @@ document.querySelector('.button-build').onclick = async () => {
     
     if(json.error && json.text) return alert(json.text);
     if(json.text) window.location.href = `/${json.text}.amx`;
-}
+});
 
-document.querySelector('.upload').onchange = async () => {
+document.querySelectorAll('.upload').forEach(el => el.onchange = async () => {
     let input = document.querySelector('.upload');
     const data = new FormData();
     data.append('file', input.files[0]);
@@ -54,13 +54,20 @@ document.querySelector('.upload').onchange = async () => {
     
     if(json.error && json.text) return alert(json.text);
     if(json.text) editor.setValue(json.text);
-}
+});
 
-document.querySelector('.button-help').onclick = () => alert(`Справка
+document.querySelectorAll('.button-help').forEach(el => el.onclick = () => alert(`Справка
 CTRL + A - выделить всё
 CTRL + D - удалить строку
 CTRL + Backspace - удалить всё до начала строки
 CTRL + Z - откатить изменение
-CTRL + Y - вернуть изменение`);
+CTRL + Y - вернуть изменение`));
 
 document.querySelector('.button-search').onclick = () => editor.execCommand('find');
+
+document.querySelector('.expand-menu').onclick = () => {
+    let menu = document.querySelector('.menu');
+
+    if(menu.style.display === 'none') menu.style.display = 'block';
+    else menu.style.display = 'none';
+}

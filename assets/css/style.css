@@ -40,3 +40,34 @@ body {
 .upload {
     color: #fff;
 }
+
+.mobile-menu {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+}
+
+.menu {
+    display: none;
+}
+
+@media (max-width: 761px) {
+    .top-menu {
+        display: none!important;
+    }
+
+    .mobile-menu {
+        display: block!important;
+    }
+}
+
+.expand-menu {
+    display: block;
+    margin-left: auto;
+    padding: 1vh 2vh;
+    background: #2196F3;
+    color: #fff;
+    border: 1px solid #2196F3;
+}
