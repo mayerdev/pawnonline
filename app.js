@@ -47,4 +47,4 @@ app.post('/build', async (req, res) => {
     });
 });
 
-app.listen(config.port, config.host, console.log(`Started on ${config.host}:${config.port}`));
+app.listen(config.port, config.host);
