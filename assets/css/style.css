@@ -55,11 +55,11 @@ body {
 
 @media (max-width: 761px) {
     .top-menu {
-        display: none!important;
+        display: none;
     }
 
     .mobile-menu {
-        display: block!important;
+        display: block;
     }
 }
 
